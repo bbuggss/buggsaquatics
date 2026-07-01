@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Care Guides — BuggsAquatics</title>
+  <meta name="description" content="Plain-language nano aquarium care guides — cycling, shrimp keeping, choosing nano fish, planting small spaces, and equipment basics." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <svg class="mark" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" fill="#62C3EC"/><path d="M7 17c3-4 6-4 9-4s6 0 9 4" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="12" r="1.6" fill="#fff"/></svg>
+        BuggsAquatics
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="care.html" aria-current="page">Care Guides</a>
+        <a href="forum.html">Forum</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-ghost btn-sm" href="contact.html">Contact</a>
+        <span id="navAccount"></span>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="care.html">Care Guides</a>
+      <a href="forum.html">Forum</a>
+      <a href="contact.html">Contact</a>
+      <span id="mobileAccount"></span>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap hero-inner" style="grid-template-columns:1fr;">
+      <div class="reveal">
+        <span class="eyebrow">Care guides</span>
+        <h1 style="max-width:20ch;">Less water means less room for error.</h1>
+        <p class="lead">Small tanks aren't a scaled-down version of a large one — they swing faster, forgive less, and reward patience more. These are the basics we wish every nano keeper started with.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="filters reveal">
+        <a class="filter-chip" href="#basics">Nano basics</a>
+        <a class="filter-chip" href="#cycling">Cycling</a>
+        <a class="filter-chip" href="#shrimp">Shrimp 101</a>
+        <a class="filter-chip" href="#fish">Choosing fish</a>
+        <a class="filter-chip" href="#plants">Planting small</a>
+        <a class="filter-chip" href="#equipment">Equipment</a>
+      </div>
+
+      <div style="display:grid;gap:20px;max-width:780px;">
+
+        <article id="basics" class="card reveal">
+          <span class="eyebrow">01</span>
+          <h2 style="font-size:24px;margin-top:10px;">What actually counts as "nano"</h2>
+          <p style="color:var(--mist);margin-top:14px;line-height:1.8;">Most of the hobby treats anything under roughly 20–30 liters as nano, though some push that line to 40L. What matters more than the exact cutoff is the behavior of small volumes: temperature, pH, and ammonia all shift faster in 10L than they would in 100L, simply because there's less water to buffer the change. A missed top-off or a slightly overfed afternoon shows up sooner in a nano tank than it would in a standard community tank.</p>
+          <p style="color:var(--mist);margin-top:12px;line-height:1.8;">That's not a reason to avoid small tanks — it's a reason to be a little more deliberate with them. Stable nano tanks tend to be heavily planted, lightly stocked, and on a consistent maintenance schedule rather than a reactive one.</p>
+        </article>
+
+        <article id="cycling" class="card reveal">
+          <span class="eyebrow">02</span>
+          <h2 style="font-size:24px;margin-top:10px;">Cycling before you stock anything</h2>
+          <p style="color:var(--mist);margin-top:14px;line-height:1.8;">Cycling is the process of growing the bacteria colony that converts fish waste (ammonia) into nitrite, then into far less harmful nitrate. In a nano tank this colony has very little margin — a tank that "looks fine" without an established cycle can crash within a day or two of stocking. Test for ammonia and nitrite rather than going by appearance; clear water doesn't mean cycled water.</p>
+          <p style="color:var(--mist);margin-top:12px;line-height:1.8;">A heavily planted nano tank can cycle faster than an empty one, since live plants take up some ammonia directly. Even so, give a new tank several weeks before adding anything sensitive like crystal shrimp, and add fish gradually rather than all at once so the bacteria colony has time to catch up to the new bioload.</p>
+        </article>
+
+        <article id="shrimp" class="card reveal">
+          <span class="eyebrow">03</span>
+          <h2 style="font-size:24px;margin-top:10px;">Shrimp keeping 101</h2>
+          <p style="color:var(--mist);margin-top:14px;line-height:1.8;">Shrimp are more sensitive to sudden parameter swings than most nano fish, and far more sensitive to copper, which is lethal to them even in trace amounts found in some fertilizers and tap water sources. Always check that any fertilizer, medication, or plant treatment is shrimp-safe before dosing a shrimp tank.</p>
+          <p style="color:var(--mist);margin-top:12px;line-height:1.8;">Neocaridina lines (cherry, blue dream, and similar) are the most forgiving entry point — they tolerate a wider pH and hardness range and breed readily. Caridina lines (crystal red and similar) need soft, acidic, and especially stable water, and are best added to a tank that's already been running steadily for a few months rather than a brand new setup.</p>
+        </article>
+
+        <article id="fish" class="card reveal">
+          <span class="eyebrow">04</span>
+          <h2 style="font-size:24px;margin-top:10px;">Choosing nano fish without overstocking</h2>
+          <p style="color:var(--mist);margin-top:14px;line-height:1.8;">The biggest nano-tank mistake isn't choosing the wrong species — it's choosing too many individuals of the right one. Most nano schooling fish (chili rasboras, CPDs, micro rasboras) genuinely need groups of six to eight or more to feel secure and show natural color and behavior, which eats into a small tank's bioload budget fast.</p>
+          <p style="color:var(--mist);margin-top:12px;line-height:1.8;">A simple approach: pick one schooling species sized for your tank, stock the full group at once or in two close additions, and resist adding a second or third species "just to see." A 10L tank with one well-kept school of chili rasboras will almost always look better and stay more stable than the same tank split between four different fish.</p>
+        </article>
+
+        <article id="plants" class="card reveal">
+          <span class="eyebrow">05</span>
+          <h2 style="font-size:24px;margin-top:10px;">Planting for small spaces</h2>
+          <p style="color:var(--mist);margin-top:14px;line-height:1.8;">Light and CO2 scale together, not independently. Strong lighting without added CO2 tends to push algae rather than plant growth, since the plants can't use the extra light fast enough. If you're not running CO2, keep light moderate and lean on low-light, slow-growing species like anubias, java moss, and bucephalandra — all of which do well simply tied to hardscape rather than planted in substrate.</p>
+          <p style="color:var(--mist);margin-top:12px;line-height:1.8;">If you do want a true carpet (dwarf hairgrass, monte carlo, and similar), plan for medium-high light and pressurized CO2 from the start — these plants tend to melt rather than simply grow slowly under low-tech conditions.</p>
+        </article>
+
+        <article id="equipment" class="card reveal">
+          <span class="eyebrow">06</span>
+          <h2 style="font-size:24px;margin-top:10px;">Equipment essentials</h2>
+          <p style="color:var(--mist);margin-top:14px;line-height:1.8;">Filter flow is the most commonly mismatched piece of nano equipment — a filter rated for a 40L tank can turn a 5L shrimp tank into a washing machine. Look for adjustable flow, or add a pre-filter sponge to soften output and protect shrimp and fry from getting pulled in.</p>
+          <p style="color:var(--mist);margin-top:12px;line-height:1.8;">Heaters scale down too: a standard 50–100W heater will overshoot wildly in a few liters of water. Nano-rated heaters (15–25W) hold temperature far more precisely. For lighting, a small clip-on or bar light is usually enough for a single nano tank — full-size aquarium fixtures are typically more light than a small footprint needs.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <h2>Have a question these don't cover?</h2>
+        <p>Ask it in the forum — it's the fastest way to get a specific answer for your specific tank.</p>
+        <a class="btn btn-primary" href="forum.html">Ask the community</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h4>BuggsAquatics</h4>
+          <p>A nano aquarium specialist — fish, shrimp, plants, and equipment for hobbyists who think small is the whole point.</p>
+        </div>
+        <div>
+          <div class="col-label">Site</div>
+          <a href="shop.html">Shop</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="care.html">Care guides</a>
+          <a href="forum.html">Forum</a>
+        </div>
+        <div>
+          <div class="col-label">Get involved</div>
+          <a href="account.html">Create an account</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>NANO TANKS · OAHU-FRIENDLY SHIPPING</span>
+        <span>© 2026 BuggsAquatics</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="auth.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

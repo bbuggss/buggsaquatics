@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shop — BuggsAquatics</title>
+  <meta name="description" content="Nano fish, shrimp, plants, and equipment from BuggsAquatics. Browse what's available and reach out to ask or reserve." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <svg class="mark" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" fill="#62C3EC"/><path d="M7 17c3-4 6-4 9-4s6 0 9 4" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="12" r="1.6" fill="#fff"/></svg>
+        BuggsAquatics
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html" aria-current="page">Shop</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="care.html">Care Guides</a>
+        <a href="forum.html">Forum</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-ghost btn-sm" href="contact.html">Contact</a>
+        <span id="navAccount"></span>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="care.html">Care Guides</a>
+      <a href="forum.html">Forum</a>
+      <a href="contact.html">Contact</a>
+      <span id="mobileAccount"></span>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap hero-inner" style="grid-template-columns:1fr;">
+      <div class="reveal">
+        <span class="eyebrow">Shop</span>
+        <h1 style="max-width:18ch;">What we've got on hand right now.</h1>
+        <p class="lead">This is a showcase, not a checkout — stock shifts week to week. See something you want? Tap "Ask about this" and we'll confirm availability and arrange pickup or shipping.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="filters reveal">
+        <button class="filter-chip active" data-filter="all">All</button>
+        <button class="filter-chip" data-filter="fish">Nano fish</button>
+        <button class="filter-chip" data-filter="shrimp">Shrimp</button>
+        <button class="filter-chip" data-filter="plants">Plants</button>
+        <button class="filter-chip" data-filter="equipment">Equipment</button>
+      </div>
+
+      <div id="fish" class="grid grid-4" style="margin-bottom:8px;">
+
+        <!-- FISH -->
+        <div class="tile reveal" data-cat="fish">
+          <div class="tile-media hue-water"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".9"><ellipse cx="26" cy="32" rx="16" ry="9"/><path d="M42 32l12-9v18z"/><circle cx="18" cy="29" r="1.6" fill="#fff"/></svg></div>
+          <div class="tile-body">
+            <span class="tag fish">Nano fish</span>
+            <h3>Chili Rasbora</h3>
+            <p><em>Boraras brigittae</em> — deep red, peaceful, stays under 2cm. Best in groups of 8+.</p>
+            <div class="spec-strip"><span class="spec-chip">22–26°C</span><span class="spec-chip">pH 4–7</span></div>
+            <div class="tile-foot"><span class="price">$6 / fish</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Chili%20Rasbora">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="fish">
+          <div class="tile-media hue-water"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".9"><ellipse cx="26" cy="32" rx="16" ry="9"/><path d="M42 32l12-9v18z"/><circle cx="18" cy="29" r="1.6" fill="#fff"/></svg></div>
+          <div class="tile-body">
+            <span class="tag fish">Nano fish</span>
+            <h3>Celestial Pearl Danio</h3>
+            <p><em>Danio margaritatus</em> — galaxy-pattern body, calm temperament, great for planted nano tanks.</p>
+            <div class="spec-strip"><span class="spec-chip">20–25°C</span><span class="spec-chip">pH 6–7.5</span></div>
+            <div class="tile-foot"><span class="price">$5 / fish</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Celestial%20Pearl%20Danio">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="fish">
+          <div class="tile-media hue-water"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".9"><ellipse cx="26" cy="32" rx="16" ry="9"/><path d="M42 32l12-9v18z"/><circle cx="18" cy="29" r="1.6" fill="#fff"/></svg></div>
+          <div class="tile-body">
+            <span class="tag fish">Nano fish</span>
+            <h3>Pygmy Corydoras</h3>
+            <p><em>Corydoras pygmaeus</em> — tiny bottom-dwelling schooler, constantly active, very peaceful.</p>
+            <div class="spec-strip"><span class="spec-chip">22–26°C</span><span class="spec-chip">Schooling</span></div>
+            <div class="tile-foot"><span class="price">$5 / fish</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Pygmy%20Corydoras">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="fish">
+          <div class="tile-media hue-water"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".9"><ellipse cx="26" cy="32" rx="16" ry="9"/><path d="M42 32l12-9v18z"/><circle cx="18" cy="29" r="1.6" fill="#fff"/></svg></div>
+          <div class="tile-body">
+            <span class="tag fish">Nano fish</span>
+            <h3>Endler's Livebearer</h3>
+            <p>Bright, hardy, and an easy breeder — good starter species for a new nano community tank.</p>
+            <div class="spec-strip"><span class="spec-chip">22–28°C</span><span class="spec-chip">pH 6.5–8</span></div>
+            <div class="tile-foot"><span class="price">$6 / fish</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Endler%27s%20Livebearer">Ask about this</a></div>
+          </div>
+        </div>
+
+        <!-- SHRIMP -->
+        <div class="tile reveal" data-cat="shrimp">
+          <div class="tile-media hue-shrimp"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".9"><path d="M20 40q-12 -8 -5 -19q5 -7 14 -3q7 3 7 10q9 -2 12 4q-4 6 -12 6q-2 5 -9 5q-5 0 -7 -3z"/></svg></div>
+          <div class="tile-body">
+            <span class="tag shrimp">Shrimp</span>
+            <h3>Red Cherry Shrimp</h3>
+            <p><em>Neocaridina davidi</em> — the standard beginner shrimp. Forgiving, prolific, great cleanup crew.</p>
+            <div class="spec-strip"><span class="spec-chip">18–28°C</span><span class="spec-chip">pH 6.5–8</span></div>
+            <div class="tile-foot"><span class="price">$4 / shrimp</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Red%20Cherry%20Shrimp">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="shrimp">
+          <div class="tile-media hue-shrimp"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".9"><path d="M20 40q-12 -8 -5 -19q5 -7 14 -3q7 3 7 10q9 -2 12 4q-4 6 -12 6q-2 5 -9 5q-5 0 -7 -3z"/></svg></div>
+          <div class="tile-body">
+            <span class="tag shrimp">Shrimp</span>
+            <h3>Blue Dream Shrimp</h3>
+            <p><em>Neocaridina davidi</em> — solid blue colony-bred line, same easy care as cherry shrimp.</p>
+            <div class="spec-strip"><span class="spec-chip">18–28°C</span><span class="spec-chip">pH 6.5–8</span></div>
+            <div class="tile-foot"><span class="price">$5 / shrimp</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Blue%20Dream%20Shrimp">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="shrimp">
+          <div class="tile-media hue-shrimp"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".9"><path d="M20 40q-12 -8 -5 -19q5 -7 14 -3q7 3 7 10q9 -2 12 4q-4 6 -12 6q-2 5 -9 5q-5 0 -7 -3z"/></svg></div>
+          <div class="tile-body">
+            <span class="tag shrimp">Shrimp</span>
+            <h3>Crystal Red Shrimp, Grade A</h3>
+            <p><em>Caridina logemanni</em> — higher-care line, needs stable soft/acidic water. Not for new tanks.</p>
+            <div class="spec-strip"><span class="spec-chip">pH 6–6.8</span><span class="spec-chip">Stable params</span></div>
+            <div class="tile-foot"><span class="price">$8 / shrimp</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Crystal%20Red%20Shrimp%20Grade%20A">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="shrimp">
+          <div class="tile-media hue-shrimp"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".9"><path d="M20 40q-12 -8 -5 -19q5 -7 14 -3q7 3 7 10q9 -2 12 4q-4 6 -12 6q-2 5 -9 5q-5 0 -7 -3z"/></svg></div>
+          <div class="tile-body">
+            <span class="tag shrimp">Shrimp</span>
+            <h3>Amano Shrimp</h3>
+            <p><em>Caridina multidentata</em> — the algae-eating workhorse. Larger, hardy, doesn't breed in freshwater.</p>
+            <div class="spec-strip"><span class="spec-chip">20–27°C</span><span class="spec-chip">Algae control</span></div>
+            <div class="tile-foot"><span class="price">$4 / shrimp</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Amano%20Shrimp">Ask about this</a></div>
+          </div>
+        </div>
+
+        <!-- PLANTS -->
+        <div class="tile reveal" data-cat="plants">
+          <div class="tile-media hue-plant"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M28 50C24 38 18 30 20 18"/><path d="M32 50C32 36 36 24 30 14"/><path d="M36 50C42 40 46 32 40 20"/></svg></div>
+          <div class="tile-body">
+            <span class="tag plant">Plant</span>
+            <h3>Anubias nana 'Petite'</h3>
+            <p>Slow-growing epiphyte, tie to wood or rock. Tolerates low light — nearly impossible to kill.</p>
+            <div class="spec-strip"><span class="spec-chip">Low light</span><span class="spec-chip">Epiphyte</span></div>
+            <div class="tile-foot"><span class="price">$9 / portion</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Anubias%20nana%20Petite">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="plants">
+          <div class="tile-media hue-plant"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M28 50C24 38 18 30 20 18"/><path d="M32 50C32 36 36 24 30 14"/><path d="M36 50C42 40 46 32 40 20"/></svg></div>
+          <div class="tile-body">
+            <span class="tag plant">Plant</span>
+            <h3>Java Moss</h3>
+            <p>Classic carpet/wall moss. Tolerant of almost any condition — a forgiving first plant.</p>
+            <div class="spec-strip"><span class="spec-chip">Low light</span><span class="spec-chip">Easy</span></div>
+            <div class="tile-foot"><span class="price">$7 / portion</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Java%20Moss">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="plants">
+          <div class="tile-media hue-plant"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M28 50C24 38 18 30 20 18"/><path d="M32 50C32 36 36 24 30 14"/><path d="M36 50C42 40 46 32 40 20"/></svg></div>
+          <div class="tile-body">
+            <span class="tag plant">Plant</span>
+            <h3>Dwarf Hairgrass</h3>
+            <p><em>Eleocharis parvula</em> — true carpeting plant. Wants medium-high light and CO2 to fill in well.</p>
+            <div class="spec-strip"><span class="spec-chip">Med-high light</span><span class="spec-chip">CO2 helps</span></div>
+            <div class="tile-foot"><span class="price">$10 / pot</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Dwarf%20Hairgrass">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="plants">
+          <div class="tile-media hue-plant"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M28 50C24 38 18 30 20 18"/><path d="M32 50C32 36 36 24 30 14"/><path d="M36 50C42 40 46 32 40 20"/></svg></div>
+          <div class="tile-body">
+            <span class="tag plant">Plant</span>
+            <h3>Bucephalandra, mixed</h3>
+            <p>Slow-growing epiphyte with striking leaf texture and color. Mixed, unlabeled varieties.</p>
+            <div class="spec-strip"><span class="spec-chip">Low-med light</span><span class="spec-chip">Epiphyte</span></div>
+            <div class="tile-foot"><span class="price">$12 / portion</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Bucephalandra%20mixed">Ask about this</a></div>
+          </div>
+        </div>
+
+        <!-- EQUIPMENT -->
+        <div class="tile reveal" data-cat="equipment">
+          <div class="tile-media hue-sand"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="14" width="20" height="36" rx="3"/><path d="M36 24h10v8H36z"/><circle cx="26" cy="40" r="2"/></svg></div>
+          <div class="tile-body">
+            <span class="tag equipment">Equipment</span>
+            <h3>Nano Internal Filter</h3>
+            <p>Adjustable internal filter rated for 40–60L/h — sized right for tanks under 20L.</p>
+            <div class="spec-strip"><span class="spec-chip">40–60 L/h</span></div>
+            <div class="tile-foot"><span class="price">$22</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Nano%20Internal%20Filter">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="equipment">
+          <div class="tile-media hue-sand"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="24" y="10" width="8" height="40" rx="4"/><path d="M22 24h4M22 32h4M22 40h4"/></svg></div>
+          <div class="tile-body">
+            <span class="tag equipment">Equipment</span>
+            <h3>Nano Submersible Heater</h3>
+            <p>25W preset heater built for small volumes — no overshoot in tanks under 15L.</p>
+            <div class="spec-strip"><span class="spec-chip">25W</span></div>
+            <div class="tile-foot"><span class="price">$18</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Nano%20Submersible%20Heater">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="equipment">
+          <div class="tile-media hue-sand"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="22" width="40" height="6" rx="3"/><path d="M16 28v4M48 28v4"/></svg></div>
+          <div class="tile-body">
+            <span class="tag equipment">Equipment</span>
+            <h3>Nano LED Light Bar</h3>
+            <p>Compact full-spectrum bar light with clip mount, sized for tanks 20–40cm wide.</p>
+            <div class="spec-strip"><span class="spec-chip">Full spectrum</span></div>
+            <div class="tile-foot"><span class="price">$34</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Nano%20LED%20Light%20Bar">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="equipment">
+          <div class="tile-media hue-sand"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="14"/><circle cx="32" cy="32" r="3"/><path d="M32 18v-6M32 46v-6"/></svg></div>
+          <div class="tile-body">
+            <span class="tag equipment">Equipment</span>
+            <h3>Inline CO2 Diffuser, Nano</h3>
+            <p>Compact diffuser for pressurized CO2 setups, fine micro-bubble output for small tanks.</p>
+            <div class="spec-strip"><span class="spec-chip">Pressurized CO2</span></div>
+            <div class="tile-foot"><span class="price">$26</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Inline%20CO2%20Diffuser%20Nano">Ask about this</a></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <h2>Don't see what you're after?</h2>
+        <p>We can often source specific species or gear on request — reach out and tell us what you're looking for.</p>
+        <a class="btn btn-primary" href="contact.html">Ask us to source it</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h4>BuggsAquatics</h4>
+          <p>A nano aquarium specialist — fish, shrimp, plants, and equipment for hobbyists who think small is the whole point.</p>
+        </div>
+        <div>
+          <div class="col-label">Site</div>
+          <a href="shop.html">Shop</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="care.html">Care guides</a>
+          <a href="forum.html">Forum</a>
+        </div>
+        <div>
+          <div class="col-label">Get involved</div>
+          <a href="account.html">Create an account</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>NANO TANKS · OAHU-FRIENDLY SHIPPING</span>
+        <span>© 2026 BuggsAquatics</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="auth.js"></script>
+  <script src="app.js"></script>
+  <script>
+    document.querySelectorAll('.filter-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        const f = chip.dataset.filter;
+        document.querySelectorAll('.tile').forEach(tile => {
+          tile.style.display = (f === 'all' || tile.dataset.cat === f) ? '' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

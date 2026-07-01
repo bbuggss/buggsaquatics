@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BuggsAquatics — Nano Tanks, Nano Fish, Nano Shrimp</title>
+  <meta name="description" content="BuggsAquatics is a nano aquarium specialist — nano fish, shrimp, plants, and equipment for hobbyists, plus care guides and a community forum." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <svg class="mark" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" fill="#62C3EC"/><path d="M7 17c3-4 6-4 9-4s6 0 9 4" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="12" r="1.6" fill="#fff"/></svg>
+        BuggsAquatics
+      </a>
+      <div class="nav-links">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="care.html">Care Guides</a>
+        <a href="forum.html">Forum</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-ghost btn-sm" href="contact.html">Contact</a>
+        <span id="navAccount"></span>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="care.html">Care Guides</a>
+      <a href="forum.html">Forum</a>
+      <a href="contact.html">Contact</a>
+      <span id="mobileAccount"></span>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <div class="reveal">
+        <span class="eyebrow">Nano fish · shrimp · plants · equipment</span>
+        <h1>Big ecosystems.<br><span class="glow">Tiny footprint.</span></h1>
+        <p class="lead">BuggsAquatics is built around one idea: a few liters of water can be a whole world. We sell, keep, and write about nano tanks — and we built a place for hobbyists to compare notes.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="shop.html">Browse the shop →</a>
+          <a class="btn btn-ghost" href="forum.html">Join the forum</a>
+        </div>
+        <div class="spec-strip">
+          <span class="spec-chip">VOL <b>10L</b></span>
+          <span class="spec-chip">TEMP <b>24.5°C</b></span>
+          <span class="spec-chip">pH <b>6.4</b></span>
+          <span class="spec-chip">GH <b>6</b></span>
+          <span class="spec-chip">CYCLED <b>90d</b></span>
+        </div>
+      </div>
+
+      <div class="tank-illo reveal" aria-hidden="true">
+        <svg viewBox="0 0 480 380" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="tankWater" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#DFF4FC"/>
+              <stop offset="100%" stop-color="#9FDCF2"/>
+            </linearGradient>
+            <linearGradient id="sandGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#F0CF9D"/>
+              <stop offset="100%" stop-color="#E3AE6B"/>
+            </linearGradient>
+          </defs>
+          <rect x="20" y="20" width="440" height="320" rx="20" fill="url(#tankWater)" stroke="#C7E3EE" stroke-width="2"/>
+          <rect class="waterline" x="20" y="20" width="440" height="34" rx="14" fill="#ffffff" opacity="0.35"/>
+
+          <path d="M20 300 Q 90 250 180 280 T 340 270 Q 410 260 460 295 L460 340 Q 240 360 20 340 Z" fill="url(#sandGrad)"/>
+
+          <!-- plant cluster left -->
+          <g stroke="#4E9777" stroke-width="5" fill="none" stroke-linecap="round">
+            <path d="M95 295 C 85 250 70 220 78 180"/>
+            <path d="M105 295 C 105 245 118 210 108 170"/>
+            <path d="M115 295 C 128 255 140 230 132 195"/>
+          </g>
+          <!-- plant cluster right -->
+          <g stroke="#5FA987" stroke-width="5" fill="none" stroke-linecap="round">
+            <path d="M360 290 C 350 245 365 215 356 175"/>
+            <path d="M372 290 C 380 250 392 222 384 188"/>
+          </g>
+
+          <!-- fish -->
+          <g fill="#1D8FC4">
+            <ellipse cx="230" cy="140" rx="22" ry="12"/>
+            <path d="M250 140 L268 128 L268 152 Z"/>
+            <circle cx="220" cy="137" r="2.2" fill="#fff"/>
+          </g>
+          <g fill="#62C3EC">
+            <ellipse cx="300" cy="190" rx="15" ry="8"/>
+            <path d="M313 190 L325 182 L325 198 Z"/>
+            <circle cx="294" cy="188" r="1.6" fill="#fff"/>
+          </g>
+
+          <!-- shrimp -->
+          <path d="M165 285 q -14 -10 -6 -22 q 6 -8 16 -4 q 8 3 8 11 q 10 -2 13 4 q -4 7 -13 7 q -3 6 -10 6 q -6 0 -8 -2z" fill="#F2897B"/>
+
+          <!-- bubbles -->
+          <circle class="bubble" cx="150" cy="260" r="3.5" fill="#fff"/>
+          <circle class="bubble" cx="155" cy="270" r="2.5" fill="#fff"/>
+          <circle class="bubble" cx="370" cy="280" r="3" fill="#fff"/>
+          <circle class="bubble" cx="365" cy="290" r="2" fill="#fff"/>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== WHAT'S HERE ===== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">What's here</span>
+        <h2>One site, four reasons to stick around.</h2>
+      </div>
+      <div class="grid grid-4">
+        <a class="card reveal" href="shop.html">
+          <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 11h20l-2 14H8L6 11z"/><path d="M11 11V8a5 5 0 0110 0v3"/></svg>
+          <h3>Shop</h3>
+          <p>Nano fish, shrimp, plants, and equipment we currently have on hand or can source.</p>
+        </a>
+        <a class="card reveal" href="gallery.html">
+          <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="6" width="22" height="20" rx="2"/><circle cx="12" cy="13" r="2.2"/><path d="M27 21l-7-7-13 12"/></svg>
+          <h3>Gallery</h3>
+          <p>The tanks we personally keep — builds, stocking, and the parameters behind them.</p>
+        </a>
+        <a class="card reveal" href="care.html">
+          <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 28s9-6 9-14a9 9 0 00-18 0c0 8 9 14 9 14z"/><path d="M16 10v8M12 14h8"/></svg>
+          <h3>Care guides</h3>
+          <p>Plain-language information on cycling, stocking, and keeping small systems stable.</p>
+        </a>
+        <a class="card reveal" href="forum.html">
+          <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h22v13H12l-5 5V8z"/><path d="M11 14h10M11 18h6"/></svg>
+          <h3>Forum</h3>
+          <p>Create an account and talk shop with other nano keepers — builds, troubleshooting, trades.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CATEGORIES ===== -->
+  <section class="section" style="background:var(--panel);border-block:1px solid var(--line);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Shop by category</span>
+        <h2>Everything scaled for small water.</h2>
+      </div>
+      <div class="grid grid-4">
+        <a class="card reveal" href="shop.html#fish"><span class="tag fish">Livestock</span><h3 style="margin-top:14px;">Nano fish</h3><p>Chili rasboras, CPDs, micro rasboras, and other species that suit small volumes.</p></a>
+        <a class="card reveal" href="shop.html#shrimp"><span class="tag shrimp">Livestock</span><h3 style="margin-top:14px;">Shrimp</h3><p>Neocaridina and caridina lines, from beginner-friendly to selectively bred grades.</p></a>
+        <a class="card reveal" href="shop.html#plants"><span class="tag plant">Plants</span><h3 style="margin-top:14px;">Aquatic plants</h3><p>Carpeting plants, mosses, and epiphytes suited to nano-scale aquascaping.</p></a>
+        <a class="card reveal" href="shop.html#equipment"><span class="tag equipment">Equipment</span><h3 style="margin-top:14px;">Equipment</h3><p>Filters, heaters, lighting, and CO2 gear sized for tanks under 20L.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMMUNITY ===== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">From the forum</span>
+        <h2>What the community's talking about.</h2>
+      </div>
+      <div class="thread-list reveal" id="recentThreads">
+        <div class="thread-row"><span class="title">Loading recent threads…</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <h2>Thinking about your first nano tank?</h2>
+        <p>Tell us what you're working with — size, budget, what you want to keep — and we'll point you in the right direction.</p>
+        <a class="btn btn-primary" href="contact.html">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h4>BuggsAquatics</h4>
+          <p>A nano aquarium specialist — fish, shrimp, plants, and equipment for hobbyists who think small is the whole point.</p>
+        </div>
+        <div>
+          <div class="col-label">Site</div>
+          <a href="shop.html">Shop</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="care.html">Care guides</a>
+          <a href="forum.html">Forum</a>
+        </div>
+        <div>
+          <div class="col-label">Get involved</div>
+          <a href="account.html">Create an account</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>NANO TANKS · OAHU-FRIENDLY SHIPPING</span>
+        <span>© 2026 BuggsAquatics</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="auth.js"></script>
+  <script src="forum.js"></script>
+  <script src="app.js"></script>
+  <script>
+    async function loadRecentThreads() {
+      const el = document.getElementById('recentThreads');
+      if (!window.sb) {
+        el.innerHTML = `<div class="empty-state" style="border:0;background:var(--surface);"><b>Forum not connected yet.</b><br>Add your Supabase keys to config.js to show live threads here.</div>`;
+        return;
+      }
+      const threads = await Forum.getRecentThreads(5);
+      if (!threads.length) {
+        el.innerHTML = `<div class="empty-state" style="border:0;background:var(--surface);"><b>No threads yet.</b><br><a href="forum.html" style="color:var(--water-deep);">Be the first to post →</a></div>`;
+        return;
+      }
+      el.innerHTML = threads.map(t => `
+        <a class="thread-row" href="forum-thread.html?id=${t.id}">
+          <span class="title">${t.title}</span>
+          <span class="who">${t.profiles?.username || 'member'} · ${Forum.timeAgo(t.created_at)}</span>
+        </a>`).join('');
+    }
+    loadRecentThreads();
+  </script>
+</body>
+</html>

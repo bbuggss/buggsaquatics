@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — BuggsAquatics</title>
+  <meta name="description" content="Ask about stock, sourcing, or anything nano-tank related at BuggsAquatics." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <svg class="mark" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" fill="#62C3EC"/><path d="M7 17c3-4 6-4 9-4s6 0 9 4" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="12" r="1.6" fill="#fff"/></svg>
+        BuggsAquatics
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="care.html">Care Guides</a>
+        <a href="forum.html">Forum</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-ghost btn-sm" href="contact.html" aria-current="page">Contact</a>
+        <span id="navAccount"></span>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="care.html">Care Guides</a>
+      <a href="forum.html">Forum</a>
+      <a href="contact.html">Contact</a>
+      <span id="mobileAccount"></span>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap hero-inner" style="grid-template-columns:1fr;">
+      <div class="reveal">
+        <span class="eyebrow">Contact</span>
+        <h1 style="max-width:18ch;">Ask about stock, sourcing, or anything nano.</h1>
+        <p class="lead">No checkout here — just send a message and we'll confirm availability, pricing, and pickup or shipping.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="grid grid-2" style="gap:48px;align-items:start;">
+
+        <div class="reveal">
+          <span class="eyebrow">Send a message</span>
+          <h2 style="font-size:clamp(22px,3.5vw,30px);margin-top:14px;">Start the conversation</h2>
+          <form class="form" id="contactForm" style="margin-top:22px;">
+            <div class="field"><label for="name">Your name</label><input id="name" type="text" required placeholder="First and last" /></div>
+            <div class="field"><label for="email">Email</label><input id="email" type="email" required placeholder="you@example.com" /></div>
+            <div class="field">
+              <label for="reason">What's this about?</label>
+              <select id="reason">
+                <option>An item from the shop</option>
+                <option>Sourcing something specific</option>
+                <option>A question about my tank</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div class="field"><label for="item">Item (if applicable)</label><input id="item" type="text" placeholder="e.g. Chili Rasbora" /></div>
+            <div class="field"><label for="message">Message</label><textarea id="message" placeholder="Tell us what you need."></textarea></div>
+            <button class="btn btn-primary" type="submit">Send message →</button>
+            <p class="form-note">Opens your email app with the message ready to send.</p>
+          </form>
+        </div>
+
+        <div class="reveal">
+          <div class="card" style="margin-bottom:18px;">
+            <h3>Email</h3>
+            <p style="margin-top:8px;"><a href="mailto:hello@buggsaquatics.co" style="color:var(--water-deep);">hello@buggsaquatics.co</a></p>
+          </div>
+          <div class="card" style="margin-bottom:18px;">
+            <h3>Forum</h3>
+            <p style="margin-top:8px;">Tank-specific questions usually get better answers in the <a href="forum.html" style="color:var(--water-deep);">forum</a> than over email — more eyes, more experience.</p>
+          </div>
+          <div class="card">
+            <h3>Pickup &amp; shipping</h3>
+            <p style="margin-top:8px;">Local pickup available; livestock shipping is arranged case-by-case depending on species and weather.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h4>BuggsAquatics</h4>
+          <p>A nano aquarium specialist — fish, shrimp, plants, and equipment for hobbyists who think small is the whole point.</p>
+        </div>
+        <div>
+          <div class="col-label">Site</div>
+          <a href="shop.html">Shop</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="care.html">Care guides</a>
+          <a href="forum.html">Forum</a>
+        </div>
+        <div>
+          <div class="col-label">Get involved</div>
+          <a href="account.html">Create an account</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>NANO TANKS · OAHU-FRIENDLY SHIPPING</span>
+        <span>© 2026 BuggsAquatics</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="auth.js"></script>
+  <script src="app.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const presetItem = params.get('item');
+    if (presetItem) {
+      document.getElementById('item').value = presetItem;
+      document.getElementById('reason').value = 'An item from the shop';
+    }
+
+    const TO = "hello@buggsaquatics.co";
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const v = id => encodeURIComponent(document.getElementById(id).value || '');
+      const subject = encodeURIComponent('Inquiry from ' + (document.getElementById('name').value || 'website'));
+      const body =
+        'Name: ' + v('name') +
+        '%0D%0AEmail: ' + v('email') +
+        '%0D%0AReason: ' + v('reason') +
+        '%0D%0AItem: ' + v('item') +
+        '%0D%0A%0D%0AMessage:%0D%0A' + v('message');
+      window.location.href = 'mailto:' + TO + '?subject=' + subject + '&body=' + body;
+    });
+  </script>
+</body>
+</html>

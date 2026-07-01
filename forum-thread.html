@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thread — BuggsAquatics Forum</title>
+  <meta name="description" content="A BuggsAquatics community forum thread." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <svg class="mark" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" fill="#62C3EC"/><path d="M7 17c3-4 6-4 9-4s6 0 9 4" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="12" r="1.6" fill="#fff"/></svg>
+        BuggsAquatics
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="care.html">Care Guides</a>
+        <a href="forum.html" aria-current="page">Forum</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-ghost btn-sm" href="contact.html">Contact</a>
+        <span id="navAccount"></span>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="care.html">Care Guides</a>
+      <a href="forum.html">Forum</a>
+      <a href="contact.html">Contact</a>
+      <span id="mobileAccount"></span>
+    </div>
+  </nav>
+
+  <section class="section">
+    <div class="wrap" style="max-width:760px;">
+
+      <a href="forum.html" class="tag" style="margin-bottom:18px;display:inline-flex;">← Back to forum</a>
+
+      <div id="threadHead" style="margin:18px 0 32px;">
+        <span class="eyebrow" id="threadCat">Loading…</span>
+        <h1 style="font-size:clamp(26px,4vw,38px);margin-top:12px;" id="threadTitle"></h1>
+        <p class="form-note" id="threadMeta" style="margin-top:10px;"></p>
+      </div>
+
+      <div id="postList" style="display:grid;gap:14px;margin-bottom:36px;"></div>
+
+      <div id="replyBlock">
+        <div id="signedOutReply" class="card" style="display:none;">
+          <p style="color:var(--mist);">Sign in to reply to this thread.</p>
+          <a class="btn btn-primary" style="margin-top:14px;" href="account.html">Sign in</a>
+        </div>
+        <form id="replyForm" class="form" style="display:none;max-width:100%;">
+          <div class="form-error" id="replyError"></div>
+          <div class="field">
+            <label for="replyBody">Reply</label>
+            <textarea id="replyBody" required placeholder="Add to the conversation…"></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Post reply →</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h4>BuggsAquatics</h4>
+          <p>A nano aquarium specialist — fish, shrimp, plants, and equipment for hobbyists who think small is the whole point.</p>
+        </div>
+        <div>
+          <div class="col-label">Site</div>
+          <a href="shop.html">Shop</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="care.html">Care guides</a>
+          <a href="forum.html">Forum</a>
+        </div>
+        <div>
+          <div class="col-label">Get involved</div>
+          <a href="account.html">Create an account</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>NANO TANKS · OAHU-FRIENDLY SHIPPING</span>
+        <span>© 2026 BuggsAquatics</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="auth.js"></script>
+  <script src="forum.js"></script>
+  <script src="app.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const threadId = params.get('id');
+
+    function escapeHtml(s) {
+      const d = document.createElement('div'); d.textContent = s; return d.innerHTML;
+    }
+
+    async function loadThread() {
+      if (!window.sb) {
+        document.getElementById('threadTitle').textContent = 'Forum not connected';
+        document.getElementById('threadMeta').textContent = 'Add your Supabase keys to config.js to load real threads.';
+        return;
+      }
+      if (!threadId) {
+        document.getElementById('threadTitle').textContent = 'No thread specified';
+        return;
+      }
+
+      const thread = await Forum.getThread(threadId);
+      if (!thread) {
+        document.getElementById('threadTitle').textContent = 'Thread not found';
+        return;
+      }
+      document.getElementById('threadCat').textContent = thread.forum_categories?.name || 'General';
+      document.getElementById('threadTitle').textContent = thread.title;
+      document.getElementById('threadMeta').textContent =
+        `Started by ${thread.profiles?.username || 'member'} · ${Forum.timeAgo(thread.created_at)}`;
+
+      const posts = await Forum.getPosts(threadId);
+      document.getElementById('postList').innerHTML = posts.map(p => `
+        <div class="post">
+          <div class="author">${Auth.initial(p.profiles?.username)}</div>
+          <div class="body">
+            <div class="meta">${p.profiles?.username || 'member'} · ${Forum.timeAgo(p.created_at)}</div>
+            <div class="text">${escapeHtml(p.body)}</div>
+          </div>
+        </div>`).join('');
+
+      const user = await Auth.getUser();
+      if (user) {
+        document.getElementById('replyForm').style.display = 'grid';
+      } else {
+        document.getElementById('signedOutReply').style.display = 'block';
+      }
+    }
+
+    document.getElementById('replyForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const errEl = document.getElementById('replyError');
+      errEl.classList.remove('show');
+      try {
+        const user = await Auth.getUser();
+        const body = document.getElementById('replyBody').value.trim();
+        await Forum.createPost(threadId, user.id, body);
+        document.getElementById('replyBody').value = '';
+        loadThread();
+      } catch (err) {
+        errEl.textContent = err.message || 'Could not post that reply.';
+        errEl.classList.add('show');
+      }
+    });
+
+    loadThread();
+  </script>
+</body>
+</html>
