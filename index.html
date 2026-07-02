@@ -86,7 +86,61 @@
         </div>
       </div>
 
-      <div class="tank-illo reveal" aria-hidden="true">
+      <div class="tank-illo reveal" aria-hidden="true" style="display:flex;flex-direction:column;align-items:center;gap:1.5rem;">
+        <img src="logo.PNG" alt="Buggs Aquatics" style="width:180px;height:180px;object-fit:cover;border-radius:50%;box-shadow:0 8px 32px rgba(0,0,0,0.15);" />
+        <style>
+          @media (prefers-reduced-motion: no-preference) {
+            .fish1 { animation: swim1 8s ease-in-out infinite; }
+            .fish2 { animation: swim2 6s ease-in-out infinite 1s; }
+            .shrimp1 { animation: shrimpbob 4s ease-in-out infinite; }
+            .shrimp2 { animation: shrimpbob 5s ease-in-out infinite 1.5s; }
+            .plant-l { animation: sway 3s ease-in-out infinite; transform-origin: 108px 305px; }
+            .plant-r { animation: sway 3.5s ease-in-out infinite 0.5s; transform-origin: 378px 300px; }
+            .bub1 { animation: rise1 4s ease-in infinite; }
+            .bub2 { animation: rise2 5s ease-in infinite 1s; }
+            .bub3 { animation: rise1 4.5s ease-in infinite 2s; }
+            .bub4 { animation: rise2 5.5s ease-in infinite 0.5s; }
+            .bub5 { animation: rise1 4s ease-in infinite 3s; }
+            .wline { animation: shimmer 3s ease-in-out infinite; }
+          }
+          @keyframes swim1 {
+            0%   { transform: translateX(0px) translateY(0px); }
+            25%  { transform: translateX(40px) translateY(-12px); }
+            50%  { transform: translateX(80px) translateY(5px); }
+            75%  { transform: translateX(40px) translateY(-8px); }
+            100% { transform: translateX(0px) translateY(0px); }
+          }
+          @keyframes swim2 {
+            0%   { transform: translateX(0px) translateY(0px); }
+            30%  { transform: translateX(-35px) translateY(10px); }
+            60%  { transform: translateX(-60px) translateY(-5px); }
+            80%  { transform: translateX(-30px) translateY(8px); }
+            100% { transform: translateX(0px) translateY(0px); }
+          }
+          @keyframes shrimpbob {
+            0%, 100% { transform: translateY(0px); }
+            40%       { transform: translateY(-5px); }
+            70%       { transform: translateY(-2px); }
+          }
+          @keyframes sway {
+            0%, 100% { transform: rotate(0deg); }
+            50%       { transform: rotate(3deg); }
+          }
+          @keyframes rise1 {
+            0%   { transform: translateY(0px);   opacity: 0.7; }
+            80%  { transform: translateY(-60px); opacity: 0.3; }
+            100% { transform: translateY(-80px); opacity: 0; }
+          }
+          @keyframes rise2 {
+            0%   { transform: translateY(0px);   opacity: 0.6; }
+            80%  { transform: translateY(-50px); opacity: 0.2; }
+            100% { transform: translateY(-70px); opacity: 0; }
+          }
+          @keyframes shimmer {
+            0%, 100% { opacity: 0.5; }
+            50%       { opacity: 0.8; }
+          }
+        </style>
         <svg viewBox="0 0 480 380" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="tankWater" x1="0" y1="0" x2="0" y2="1">
@@ -98,84 +152,98 @@
               <stop offset="0%" stop-color="#e8c97a"/>
               <stop offset="100%" stop-color="#c9a04e"/>
             </linearGradient>
+            <clipPath id="tankClip">
+              <rect x="16" y="16" width="448" height="332" rx="20"/>
+            </clipPath>
           </defs>
 
           <!-- Tank body -->
           <rect x="16" y="16" width="448" height="332" rx="20" fill="url(#tankWater)" stroke="#a8d8ea" stroke-width="2"/>
 
-          <!-- Waterline shimmer -->
-          <path d="M16 36 Q120 24 240 36 Q360 48 464 32" fill="none" stroke="#fff" stroke-width="2" opacity="0.5"/>
+          <!-- Clipped content so nothing overflows tank edges -->
+          <g clip-path="url(#tankClip)">
 
-          <!-- Sand bed -->
-          <path d="M16 306 Q80 292 160 298 Q240 304 320 295 Q400 286 464 298 L464 348 Q240 360 16 348 Z" fill="url(#sandGrad)"/>
+            <!-- Light rays from surface -->
+            <line x1="160" y1="16" x2="140" y2="120" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity="0.06"/>
+            <line x1="240" y1="16" x2="220" y2="140" stroke="#fff" stroke-width="12" stroke-linecap="round" opacity="0.07"/>
+            <line x1="340" y1="16" x2="360" y2="130" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity="0.05"/>
 
-          <!-- Rock -->
-          <ellipse cx="300" cy="303" rx="42" ry="18" fill="#8a9aaa"/>
-          <ellipse cx="290" cy="300" rx="26" ry="13" fill="#9aaabb"/>
+            <!-- Sand bed -->
+            <path d="M16 306 Q80 292 160 298 Q240 304 320 295 Q400 286 464 298 L464 348 Q240 360 16 348 Z" fill="url(#sandGrad)"/>
 
-          <!-- Plant cluster left — tall stems with leaves -->
-          <line x1="90" y1="305" x2="76" y2="205" stroke="#3a7a5a" stroke-width="5" stroke-linecap="round"/>
-          <line x1="108" y1="305" x2="110" y2="195" stroke="#4a8f6a" stroke-width="4" stroke-linecap="round"/>
-          <line x1="126" y1="305" x2="132" y2="210" stroke="#5aab7a" stroke-width="3" stroke-linecap="round"/>
-          <!-- left leaves -->
-          <ellipse cx="70" cy="202" rx="22" ry="10" fill="#5aab7a" transform="rotate(-25 70 202)"/>
-          <ellipse cx="111" cy="192" rx="24" ry="9" fill="#4a9a6a" transform="rotate(12 111 192)"/>
-          <ellipse cx="83" cy="240" rx="16" ry="7" fill="#3a8a5a" transform="rotate(-18 83 240)"/>
-          <ellipse cx="125" cy="250" rx="14" ry="6" fill="#5aab7a" transform="rotate(20 125 250)"/>
+            <!-- Rock -->
+            <ellipse cx="300" cy="303" rx="42" ry="18" fill="#8a9aaa"/>
+            <ellipse cx="290" cy="300" rx="26" ry="13" fill="#9aaabb"/>
+            <ellipse cx="290" cy="290" rx="18" ry="7" fill="#3a7a4a" opacity="0.8"/>
+            <ellipse cx="308" cy="288" rx="12" ry="5" fill="#4a8a5a" opacity="0.7"/>
 
-          <!-- Plant cluster right -->
-          <line x1="358" y1="300" x2="348" y2="195" stroke="#3a7a5a" stroke-width="5" stroke-linecap="round"/>
-          <line x1="378" y1="300" x2="384" y2="202" stroke="#4a8f6a" stroke-width="4" stroke-linecap="round"/>
-          <line x1="395" y1="300" x2="400" y2="215" stroke="#5aab7a" stroke-width="3" stroke-linecap="round"/>
-          <!-- right leaves -->
-          <ellipse cx="344" cy="193" rx="20" ry="9" fill="#5aab7a" transform="rotate(-20 344 193)"/>
-          <ellipse cx="385" cy="198" rx="22" ry="8" fill="#4a9a6a" transform="rotate(15 385 198)"/>
-          <ellipse cx="360" cy="238" rx="15" ry="7" fill="#3a8a5a" transform="rotate(-15 360 238)"/>
+            <!-- Plant cluster left — animated sway -->
+            <g class="plant-l">
+              <line x1="90" y1="305" x2="76" y2="205" stroke="#3a7a5a" stroke-width="5" stroke-linecap="round"/>
+              <line x1="108" y1="305" x2="110" y2="195" stroke="#4a8f6a" stroke-width="4" stroke-linecap="round"/>
+              <line x1="126" y1="305" x2="132" y2="210" stroke="#5aab7a" stroke-width="3" stroke-linecap="round"/>
+              <ellipse cx="70" cy="202" rx="22" ry="10" fill="#5aab7a" transform="rotate(-25 70 202)"/>
+              <ellipse cx="111" cy="192" rx="24" ry="9" fill="#4a9a6a" transform="rotate(12 111 192)"/>
+              <ellipse cx="83" cy="240" rx="16" ry="7" fill="#3a8a5a" transform="rotate(-18 83 240)"/>
+              <ellipse cx="125" cy="250" rx="14" ry="6" fill="#5aab7a" transform="rotate(20 125 250)"/>
+            </g>
 
-          <!-- Guppy 1 (blue, facing left) -->
-          <ellipse cx="220" cy="148" rx="32" ry="14" fill="#3a9ecc"/>
-          <path d="M252 148 C265 135 272 125 268 148 C272 171 265 161 252 148Z" fill="#2a8abb"/>
-          <ellipse cx="220" cy="148" rx="32" ry="14" fill="#62C3EC" opacity="0.6"/>
-          <circle cx="204" cy="144" r="4" fill="#fff"/>
-          <circle cx="205" cy="144" r="2" fill="#0a2a3a"/>
-          <!-- dorsal fin -->
-          <path d="M215 134 Q228 120 242 132 Q230 136 215 134Z" fill="#4ab0dc" opacity="0.8"/>
+            <!-- Plant cluster right — animated sway opposite -->
+            <g class="plant-r">
+              <line x1="358" y1="300" x2="348" y2="195" stroke="#3a7a5a" stroke-width="5" stroke-linecap="round"/>
+              <line x1="378" y1="300" x2="384" y2="202" stroke="#4a8f6a" stroke-width="4" stroke-linecap="round"/>
+              <line x1="395" y1="300" x2="400" y2="215" stroke="#5aab7a" stroke-width="3" stroke-linecap="round"/>
+              <ellipse cx="344" cy="193" rx="20" ry="9" fill="#5aab7a" transform="rotate(-20 344 193)"/>
+              <ellipse cx="385" cy="198" rx="22" ry="8" fill="#4a9a6a" transform="rotate(15 385 198)"/>
+              <ellipse cx="360" cy="238" rx="15" ry="7" fill="#3a8a5a" transform="rotate(-15 360 238)"/>
+            </g>
 
-          <!-- Guppy 2 (orange, smaller, facing right) -->
-          <ellipse cx="360" cy="195" rx="22" ry="10" fill="#e07840"/>
-          <path d="M338 195 C326 185 320 177 324 195 C320 213 326 205 338 195Z" fill="#c86030"/>
-          <circle cx="374" cy="191" r="3" fill="#fff"/>
-          <circle cx="375" cy="191" r="1.5" fill="#2a0a05"/>
-          <path d="M356 186 Q366 175 374 183 Q365 187 356 186Z" fill="#e8904a" opacity="0.8"/>
+            <!-- Guppy 1 (blue, swimming) -->
+            <g class="fish1">
+              <ellipse cx="220" cy="148" rx="32" ry="14" fill="#3a9ecc"/>
+              <path d="M252 148 C265 135 272 125 268 148 C272 171 265 161 252 148Z" fill="#2a8abb"/>
+              <ellipse cx="220" cy="148" rx="32" ry="14" fill="#62C3EC" opacity="0.6"/>
+              <circle cx="204" cy="144" r="4" fill="#fff"/>
+              <circle cx="205" cy="144" r="2" fill="#0a2a3a"/>
+              <path d="M215 134 Q228 120 242 132 Q230 136 215 134Z" fill="#4ab0dc" opacity="0.8"/>
+            </g>
 
-          <!-- Cherry shrimp 1 -->
-          <path d="M168 292 q-14 -9 -6 -20 q5 -7 13 -3 q7 3 7 10 q9 -2 11 4 q-3 6-11 6 q-2 5-8 5 q-5 0-6-2z" fill="#e85d3a"/>
-          <circle cx="175" cy="275" r="2.5" fill="#1a0a05"/>
-          <!-- shrimp antennae -->
-          <line x1="175" y1="275" x2="165" y2="265" stroke="#e85d3a" stroke-width="1" stroke-linecap="round"/>
-          <line x1="175" y1="275" x2="170" y2="263" stroke="#e85d3a" stroke-width="1" stroke-linecap="round"/>
+            <!-- Guppy 2 (orange, swimming opposite) -->
+            <g class="fish2">
+              <ellipse cx="360" cy="195" rx="22" ry="10" fill="#e07840"/>
+              <path d="M338 195 C326 185 320 177 324 195 C320 213 326 205 338 195Z" fill="#c86030"/>
+              <circle cx="374" cy="191" r="3" fill="#fff"/>
+              <circle cx="375" cy="191" r="1.5" fill="#2a0a05"/>
+              <path d="M356 186 Q366 175 374 183 Q365 187 356 186Z" fill="#e8904a" opacity="0.8"/>
+            </g>
 
-          <!-- Cherry shrimp 2 (on rock) -->
-          <path d="M310 287 q-10 -7 -4 -16 q4 -6 10 -2 q6 2 5 8 q7 -2 9 3 q-3 5-9 5 q-2 4-6 4 q-4 0-5-2z" fill="#cc4422"/>
-          <circle cx="316" cy="273" r="2" fill="#1a0a05"/>
+            <!-- Cherry shrimp 1 (bobbing) -->
+            <g class="shrimp1">
+              <path d="M168 292 q-14 -9 -6 -20 q5 -7 13 -3 q7 3 7 10 q9 -2 11 4 q-3 6-11 6 q-2 5-8 5 q-5 0-6-2z" fill="#e85d3a"/>
+              <circle cx="175" cy="275" r="2.5" fill="#1a0a05"/>
+              <line x1="175" y1="275" x2="165" y2="265" stroke="#e85d3a" stroke-width="1" stroke-linecap="round"/>
+              <line x1="175" y1="275" x2="170" y2="263" stroke="#e85d3a" stroke-width="1" stroke-linecap="round"/>
+            </g>
 
-          <!-- Moss patch on rock -->
-          <ellipse cx="290" cy="290" rx="18" ry="7" fill="#3a7a4a" opacity="0.8"/>
-          <ellipse cx="308" cy="288" rx="12" ry="5" fill="#4a8a5a" opacity="0.7"/>
+            <!-- Cherry shrimp 2 (bobbing on rock) -->
+            <g class="shrimp2">
+              <path d="M310 287 q-10 -7 -4 -16 q4 -6 10 -2 q6 2 5 8 q7 -2 9 3 q-3 5-9 5 q-2 4-6 4 q-4 0-5-2z" fill="#cc4422"/>
+              <circle cx="316" cy="273" r="2" fill="#1a0a05"/>
+            </g>
 
-          <!-- Bubbles left plant -->
-          <circle cx="100" cy="265" r="3.5" fill="none" stroke="#fff" stroke-width="1.2" opacity="0.7"/>
-          <circle cx="96" cy="248" r="2.5" fill="none" stroke="#fff" stroke-width="1" opacity="0.55"/>
-          <circle cx="104" cy="230" r="2" fill="none" stroke="#fff" stroke-width="1" opacity="0.4"/>
+            <!-- Bubbles left (rising) -->
+            <circle class="bub1" cx="100" cy="265" r="3.5" fill="none" stroke="#fff" stroke-width="1.2" opacity="0.7"/>
+            <circle class="bub2" cx="96" cy="248" r="2.5" fill="none" stroke="#fff" stroke-width="1" opacity="0.55"/>
+            <circle class="bub3" cx="104" cy="258" r="2" fill="none" stroke="#fff" stroke-width="1" opacity="0.4"/>
 
-          <!-- Bubbles right -->
-          <circle cx="375" cy="270" r="3" fill="none" stroke="#fff" stroke-width="1.2" opacity="0.6"/>
-          <circle cx="372" cy="254" r="2" fill="none" stroke="#fff" stroke-width="1" opacity="0.45"/>
+            <!-- Bubbles right (rising) -->
+            <circle class="bub4" cx="375" cy="270" r="3" fill="none" stroke="#fff" stroke-width="1.2" opacity="0.6"/>
+            <circle class="bub5" cx="372" cy="255" r="2" fill="none" stroke="#fff" stroke-width="1" opacity="0.45"/>
 
-          <!-- Light rays from surface -->
-          <line x1="160" y1="16" x2="140" y2="120" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity="0.06"/>
-          <line x1="240" y1="16" x2="220" y2="140" stroke="#fff" stroke-width="12" stroke-linecap="round" opacity="0.07"/>
-          <line x1="340" y1="16" x2="360" y2="130" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity="0.05"/>
+          </g>
+
+          <!-- Waterline shimmer on top -->
+          <path class="wline" d="M16 36 Q120 24 240 36 Q360 48 464 32" fill="none" stroke="#fff" stroke-width="2" opacity="0.5"/>
 
           <!-- Tank frame border highlight -->
           <rect x="16" y="16" width="448" height="332" rx="20" fill="none" stroke="#fff" stroke-width="1" opacity="0.25"/>
