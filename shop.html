@@ -32,47 +32,7 @@
     .footer-social a:hover { color: var(--cloud); }
   </style>
   <style>
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.35);
-      color: #fff;
-      border: none;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      font-size: 18px;
-      line-height: 1;
-      cursor: pointer;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity 0.2s;
-    }
-    .carousel:hover .carousel-btn { opacity: 1; }
-    .carousel-prev { left: 6px; }
-    .carousel-next { right: 6px; }
-    .carousel-dots {
-      position: absolute;
-      bottom: 6px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 4px;
-      z-index: 10;
-    }
-    .carousel-dot, .carousel-dotactive {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.5);
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .carousel-dotactive { background: #fff; }
+    /* carousel styles in main style block below */
   </style>
 </head>
 <body>
@@ -130,7 +90,7 @@
       </div>
 
       <style>
-        #shopGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; align-items: start; }
+        #shopGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; align-items: stretch; }
         #shopGrid .tile {
           display: flex;
           flex-direction: column;
@@ -141,17 +101,21 @@
           width: 100%;
         }
         #shopGrid .tile-media {
-          height: 150px;
+          height: 200px;
           flex-shrink: 0;
+          overflow: hidden;
+          background: #f5f0e8;
           display: flex;
           align-items: center;
           justify-content: center;
         }
-        #shopGrid .tile-media svg { width: 56px; height: 56px; }
-        #shopGrid .hue-water  { background: linear-gradient(135deg,#8fd3f0,#5bb8d4); }
-        #shopGrid .hue-shrimp { background: linear-gradient(135deg,#f6b5a0,#ec8d75); }
-        #shopGrid .hue-plant  { background: linear-gradient(135deg,#a9dbb8,#7bc79a); }
-        #shopGrid .hue-sand   { background: linear-gradient(135deg,#e8c98a,#d4ad63); }
+        #shopGrid .tile-media img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          display: block;
+        }
+        #shopGrid .cr { position: relative; }
         #shopGrid .tile-body {
           padding: 16px;
           display: flex;
@@ -159,8 +123,8 @@
           gap: 8px;
           flex: 1;
         }
-        #shopGrid .tile-body h3 { margin: 0; font-size: 1.05rem; }
-        #shopGrid .tile-body p { margin: 0; font-size: 0.85rem; color: #6b7280; line-height: 1.5; flex: 1; }
+        #shopGrid .tile-body h3 { margin: 0; font-size: 1rem; font-weight: 700; }
+        #shopGrid .tile-body p { margin: 0; font-size: 0.84rem; color: #6b7280; line-height: 1.55; flex: 1; }
         #shopGrid .tag {
           align-self: flex-start;
           font-size: 0.68rem;
@@ -177,20 +141,298 @@
           justify-content: space-between;
           gap: 10px;
           margin-top: 8px;
+          padding-top: 10px;
+          border-top: 1px solid #f0f0f0;
         }
         #shopGrid .price { font-weight: 700; font-size: 0.95rem; color: var(--water-deep, #1a6a8a); white-space: nowrap; }
-        #shopGrid .btn-sm { font-size: 0.8rem; padding: 8px 14px; white-space: nowrap; }
+        #shopGrid .btn-sm { font-size: 0.8rem; padding: 7px 13px; white-space: nowrap; }
+        .cb {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background: rgba(0,0,0,0.4);
+          color: #fff;
+          border: none;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          font-size: 20px;
+          cursor: pointer;
+          z-index: 10;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transition: opacity 0.2s;
+          line-height: 1;
+          padding: 0;
+        }
+        .cr:hover .cb { opacity: 1; }
+        .cb-p { left: 6px; }
+        .cb-n { right: 6px; }
+        .cds {
+          position: absolute;
+          bottom: 6px;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          gap: 4px;
+          z-index: 10;
+        }
+        .cd, .cd-a {
+          width: 6px; height: 6px;
+          border-radius: 50%;
+          background: rgba(255,255,255,0.5);
+          cursor: pointer;
+          transition: background 0.2s;
+        }
+        .cd-a { background: #fff; }
         @media (max-width: 900px) { #shopGrid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 520px) { #shopGrid { grid-template-columns: 1fr; } }
       </style>
       <div id="shopGrid">
         <div class="tile reveal" data-cat="fish">
-          <div class="tile-media carousel" style="padding:0;overflow:hidden;position:relative;">
-              <img src="shop/sketch-airline-accessories.jpg" alt="Airline Accessories" class="carousel-img" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:1;transition:opacity 0.3s;" data-index="0" /><img src="shop/airline-accessories.jpg" alt="Airline Accessories" class="carousel-img" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 0.3s;" data-index="1" />
-              <button class="carousel-btn carousel-prev" onclick="carouselPrev(this)">&#8249;</button>
-              <button class="carousel-btn carousel-next" onclick="carouselNext(this)">&#8250;</button>
-              <div class="carousel-dots"><span class="carousel-dotactive" data-index="0"></span><span class="carousel-dot" data-index="1"></span></div>
-            </div>
+          <div class="tile-media cr" style="position:relative;"><img src="shop/sketch-assorted-guppies.jpg" alt="Assorted Guppies" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:1;transition:opacity 0.3s;" data-index="0" /><img src="shop/assorted-guppies.jpg" alt="Assorted Guppies" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 0.3s;" data-index="1" /><button class="cb cb-p" onclick="cPrev(this)">&#8249;</button><button class="cb cb-n" onclick="cNext(this)">&#8250;</button><div class="cds"><span class="cd cd-a" data-index="0"></span><span class="cd" data-index="1"></span></div></div>
+          <div class="tile-body">
+            <span class="tag fish">Guppy</span>
+            <h3>Assorted Guppies</h3>
+            <p>Homebred assorted guppies in a mix of colorways. Active, hardy, and great for community nano tanks.</p>
+            <div class="tile-foot"><span class="price">$3 / fish</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Assorted%20Guppies">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="fish">
+          <div class="tile-media cr" style="position:relative;"><img src="shop/sketch-blue-ivory-guppies.jpg" alt="Blue Ivory Guppies" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:1;transition:opacity 0.3s;" data-index="0" /><img src="shop/blue-ivory-guppies.jpg" alt="Blue Ivory Guppies" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 0.3s;" data-index="1" /><button class="cb cb-p" onclick="cPrev(this)">&#8249;</button><button class="cb cb-n" onclick="cNext(this)">&#8250;</button><div class="cds"><span class="cd cd-a" data-index="0"></span><span class="cd" data-index="1"></span></div></div>
+          <div class="tile-body">
+            <span class="tag fish">Guppy</span>
+            <h3>Blue Ivory Guppies</h3>
+            <p>Homebred blue ivory guppies — clean white-blue coloration, steady breeders, easy to keep. Available for local pickup on Oahu.</p>
+            <div class="tile-foot"><span class="price">$4 / fish</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Blue%20Ivory%20Guppies">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="shrimp">
+          <div class="tile-media cr" style="position:relative;"><img src="shop/sketch-wild-type-neocaridina.jpg" alt="Wild Type Neocaridina" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:1;transition:opacity 0.3s;" data-index="0" /><img src="shop/assorted-shrimp.jpg" alt="Wild Type Neocaridina" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 0.3s;" data-index="1" /><button class="cb cb-p" onclick="cPrev(this)">&#8249;</button><button class="cb cb-n" onclick="cNext(this)">&#8250;</button><div class="cds"><span class="cd cd-a" data-index="0"></span><span class="cd" data-index="1"></span></div></div>
+          <div class="tile-body">
+            <span class="tag shrimp">Shrimp · Wild Type</span>
+            <h3>Wild Type Neocaridina</h3>
+            <p>Mixed, unselected Neocaridina colors and patterns — mostly muted browns and grays with the occasional surprise. Just as hardy as graded lines, at the lowest price point.</p>
+            <div class="tile-foot"><span class="price">$1 / shrimp</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Wild%20Neocaridina%20Shrimp">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="shrimp">
+          <div class="tile-media cr" style="position:relative;"><img src="shop/sketch-basic-cherry-shrimp.jpg" alt="Basic Cherry Shrimp" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:1;transition:opacity 0.3s;" data-index="0" /><img src="shop/basic-cherry-shrimp.jpg" alt="Basic Cherry Shrimp" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 0.3s;" data-index="1" /><button class="cb cb-p" onclick="cPrev(this)">&#8249;</button><button class="cb cb-n" onclick="cNext(this)">&#8250;</button><div class="cds"><span class="cd cd-a" data-index="0"></span><span class="cd" data-index="1"></span></div></div>
+          <div class="tile-body">
+            <span class="tag shrimp">Shrimp · Basic Cherry</span>
+            <h3>Basic Cherry Shrimp</h3>
+            <p>Entry-level Neocaridina — mostly clear with some red coloring. Hardy, easy to breed, great for planted tanks and beginners.</p>
+            <div class="tile-foot"><span class="price">$2 / shrimp</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Basic%20Cherry%20Shrimp">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="shrimp">
+          <div class="tile-media cr" style="position:relative;"><img src="shop/sketch-sakura-red-cherry-shrimp.jpg" alt="Sakura Red Cherry Shrimp" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:1;transition:opacity 0.3s;" data-index="0" /><img src="shop/sakura-red-cherry-shrimp.jpg" alt="Sakura Red Cherry Shrimp" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 0.3s;" data-index="1" /><button class="cb cb-p" onclick="cPrev(this)">&#8249;</button><button class="cb cb-n" onclick="cNext(this)">&#8250;</button><div class="cds"><span class="cd cd-a" data-index="0"></span><span class="cd" data-index="1"></span></div></div>
+          <div class="tile-body">
+            <span class="tag shrimp">Shrimp · Sakura Red</span>
+            <h3>Sakura Red Cherry Shrimp</h3>
+            <p>Deeper red coverage than basic cherry, shell still slightly translucent on legs and tail. A solid mid-grade Neo.</p>
+            <div class="tile-foot"><span class="price">$3 / shrimp</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Sakura%20Red%20Cherry%20Shrimp">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="shrimp">
+          <div class="tile-media cr" style="position:relative;"><img src="shop/sketch-fire-red-cherry-shrimp.jpg" alt="Fire Red Cherry Shrimp" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:1;transition:opacity 0.3s;" data-index="0" /><img src="shop/fire-red-cherry-shrimp.jpg" alt="Fire Red Cherry Shrimp" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 0.3s;" data-index="1" /><button class="cb cb-p" onclick="cPrev(this)">&#8249;</button><button class="cb cb-n" onclick="cNext(this)">&#8250;</button><div class="cds"><span class="cd cd-a" data-index="0"></span><span class="cd" data-index="1"></span></div></div>
+          <div class="tile-body">
+            <span class="tag shrimp">Shrimp · Fire Red</span>
+            <h3>Fire Red Cherry Shrimp</h3>
+            <p>Solid bright red all over, harder to see through the shell than Sakura. Great color payoff in planted tanks.</p>
+            <div class="tile-foot"><span class="price">$5 / shrimp</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Fire%20Red%20Cherry%20Shrimp">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="shrimp">
+          <div class="tile-media" style="padding:0;overflow:hidden;"><img src="shop/painted-fire-red-cherry-shrimp.jpg" alt="Painted Fire Red Cherry Shrimp" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+          <div class="tile-body">
+            <span class="tag shrimp">Shrimp · Painted Fire Red</span>
+            <h3>Painted Fire Red Cherry Shrimp</h3>
+            <p>Deep, rich, opaque red — you can't see through the shell at all. One of the higher grades of Neocaridina cherry.</p>
+            <div class="tile-foot"><span class="price">$7–8 / shrimp</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Painted%20Fire%20Red%20Cherry%20Shrimp">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="shrimp">
+          <div class="tile-media" style="padding:0;overflow:hidden;"><img src="shop/bloody-mary-cherry-shrimp.jpg" alt="Bloody Mary Cherry Shrimp" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+          <div class="tile-body">
+            <span class="tag shrimp">Shrimp · Bloody Mary</span>
+            <h3>Bloody Mary Cherry Shrimp</h3>
+            <p>Deep crimson coloration with a shorter, rounder body. Stunning in planted tanks and one of the most sought-after Neo morphs.</p>
+            <div class="tile-foot"><span class="price">$9–10 / shrimp</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Bloody%20Mary%20Cherry%20Shrimp">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="shrimp">
+          <div class="tile-media cr" style="position:relative;"><img src="shop/sketch-red-rili-cherry-shrimp.jpg" alt="Red Rili Cherry Shrimp" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:1;transition:opacity 0.3s;" data-index="0" /><img src="shop/red-rili-cherry-shrimp.jpg" alt="Red Rili Cherry Shrimp" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 0.3s;" data-index="1" /><button class="cb cb-p" onclick="cPrev(this)">&#8249;</button><button class="cb cb-n" onclick="cNext(this)">&#8250;</button><div class="cds"><span class="cd cd-a" data-index="0"></span><span class="cd" data-index="1"></span></div></div>
+          <div class="tile-body">
+            <span class="tag shrimp">Shrimp · Red Rili</span>
+            <h3>Red Rili Cherry Shrimp</h3>
+            <p>Neocaridina with a distinctive rilli pattern — solid red head and tail with a clear midsection. Unique and eye-catching.</p>
+            <div class="tile-foot"><span class="price">$6–12 / shrimp</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Red%20Rili%20Cherry%20Shrimp">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="plants">
+          <div class="tile-media cr" style="position:relative;"><img src="shop/sketch-azolla.jpg" alt="Azolla" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:1;transition:opacity 0.3s;" data-index="0" /><img src="shop/azolla.jpg" alt="Azolla" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 0.3s;" data-index="1" /><button class="cb cb-p" onclick="cPrev(this)">&#8249;</button><button class="cb cb-n" onclick="cNext(this)">&#8250;</button><div class="cds"><span class="cd cd-a" data-index="0"></span><span class="cd" data-index="1"></span></div></div>
+          <div class="tile-body">
+            <span class="tag plant">Plant</span>
+            <h3>Azolla</h3>
+            <p>Native floating fern that provides shade, absorbs nutrients, and gives shrimp babies a place to hide. Fast growing.</p>
+            <div class="tile-foot"><span class="price">$5 / bag</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Azolla">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="plants">
+          <div class="tile-media cr" style="position:relative;"><img src="shop/sketch-water-lettuce.jpg" alt="Water Lettuce" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:1;transition:opacity 0.3s;" data-index="0" /><img src="shop/water-lettuce.jpg" alt="Water Lettuce" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 0.3s;" data-index="1" /><button class="cb cb-p" onclick="cPrev(this)">&#8249;</button><button class="cb cb-n" onclick="cNext(this)">&#8250;</button><div class="cds"><span class="cd cd-a" data-index="0"></span><span class="cd" data-index="1"></span></div></div>
+          <div class="tile-body">
+            <span class="tag plant">Plant</span>
+            <h3>Water Lettuce</h3>
+            <p>Large floating plant with long feathery roots — great for shrimp tanks, absorbs nitrates fast, and easy to maintain.</p>
+            <div class="tile-foot"><span class="price">$5 / bag</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Water%20Lettuce">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="plants">
+          <div class="tile-media cr" style="position:relative;"><img src="shop/sketch-rotala-hra.jpg" alt="Rotala Hra" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:1;transition:opacity 0.3s;" data-index="0" /><img src="shop/rotala-hra.jpg" alt="Rotala Hra" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 0.3s;" data-index="1" /><button class="cb cb-p" onclick="cPrev(this)">&#8249;</button><button class="cb cb-n" onclick="cNext(this)">&#8250;</button><div class="cds"><span class="cd cd-a" data-index="0"></span><span class="cd" data-index="1"></span></div></div>
+          <div class="tile-body">
+            <span class="tag plant">Plant</span>
+            <h3>Rotala Hra</h3>
+            <p>Stunning red stem plant that develops deep color under good light. Great mid-to-background plant for nano aquascapes.</p>
+            <div class="tile-foot"><span class="price">$5 / bag</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Rotala%20Hra">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="plants">
+          <div class="tile-media cr" style="position:relative;"><img src="shop/sketch-bacopa-monnieri.jpg" alt="Bacopa Monnieri" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:1;transition:opacity 0.3s;" data-index="0" /><img src="shop/bacopa-monnieri.jpg" alt="Bacopa Monnieri" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 0.3s;" data-index="1" /><button class="cb cb-p" onclick="cPrev(this)">&#8249;</button><button class="cb cb-n" onclick="cNext(this)">&#8250;</button><div class="cds"><span class="cd cd-a" data-index="0"></span><span class="cd" data-index="1"></span></div></div>
+          <div class="tile-body">
+            <span class="tag plant">Plant</span>
+            <h3>Bacopa Monnieri</h3>
+            <p>Hardy stem plant with small round leaves. Tolerates a wide range of conditions, grows well in low to medium light.</p>
+            <div class="tile-foot"><span class="price">$5 / bag</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Bacopa%20Monnieri">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="plants">
+          <div class="tile-media cr" style="position:relative;"><img src="shop/sketch-hornwort.jpg" alt="Hornwort" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:1;transition:opacity 0.3s;" data-index="0" /><img src="shop/hornwort.jpg" alt="Hornwort" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 0.3s;" data-index="1" /><button class="cb cb-p" onclick="cPrev(this)">&#8249;</button><button class="cb cb-n" onclick="cNext(this)">&#8250;</button><div class="cds"><span class="cd cd-a" data-index="0"></span><span class="cd" data-index="1"></span></div></div>
+          <div class="tile-body">
+            <span class="tag plant">Plant</span>
+            <h3>Hornwort</h3>
+            <p>Fast-growing stem plant that outcompetes algae by absorbing excess nutrients. Great for cycling tanks and shrimp setups.</p>
+            <div class="tile-foot"><span class="price">$5 / bag</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Hornwort">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="plants">
+          <div class="tile-media cr" style="position:relative;"><img src="shop/sketch-guppy-grass.jpg" alt="Guppy Grass" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:1;transition:opacity 0.3s;" data-index="0" /><img src="shop/guppy-grass.jpg" alt="Guppy Grass" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 0.3s;" data-index="1" /><button class="cb cb-p" onclick="cPrev(this)">&#8249;</button><button class="cb cb-n" onclick="cNext(this)">&#8250;</button><div class="cds"><span class="cd cd-a" data-index="0"></span><span class="cd" data-index="1"></span></div></div>
+          <div class="tile-body">
+            <span class="tag plant">Plant</span>
+            <h3>Guppy Grass</h3>
+            <p>Dense, fine-textured plant that shrimp and fry love to hide in. Nearly indestructible and grows in almost any condition.</p>
+            <div class="tile-foot"><span class="price">$5 / bag</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Guppy%20Grass">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="plants">
+          <div class="tile-media cr" style="position:relative;"><img src="shop/sketch-frogbit.jpg" alt="Frogbit" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:1;transition:opacity 0.3s;" data-index="0" /><img src="shop/frogbit.jpg" alt="Frogbit" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 0.3s;" data-index="1" /><button class="cb cb-p" onclick="cPrev(this)">&#8249;</button><button class="cb cb-n" onclick="cNext(this)">&#8250;</button><div class="cds"><span class="cd cd-a" data-index="0"></span><span class="cd" data-index="1"></span></div></div>
+          <div class="tile-body">
+            <span class="tag plant">Plant</span>
+            <h3>Frogbit</h3>
+            <p>Floating plant with round lily-pad-like leaves. Easy to grow, provides shade, and shrimp love grazing on the dangling roots.</p>
+            <div class="tile-foot"><span class="price">$5 / bag</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Frogbit">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="plants">
+          <div class="tile-media cr" style="position:relative;"><img src="shop/sketch-dwarf-hairgrass.jpg" alt="Dwarf Hairgrass" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:1;transition:opacity 0.3s;" data-index="0" /><img src="shop/dwarf-hairgrass.jpg" alt="Dwarf Hairgrass" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 0.3s;" data-index="1" /><button class="cb cb-p" onclick="cPrev(this)">&#8249;</button><button class="cb cb-n" onclick="cNext(this)">&#8250;</button><div class="cds"><span class="cd cd-a" data-index="0"></span><span class="cd" data-index="1"></span></div></div>
+          <div class="tile-body">
+            <span class="tag plant">Plant</span>
+            <h3>Dwarf Hairgrass</h3>
+            <p>Classic carpeting plant for nano aquascapes. Does best with medium-high light and CO2, but can grow slowly in low-tech setups.</p>
+            <div class="tile-foot"><span class="price">$5 / bag</span><a class="btn btn-ghost btn-sm" href="contact.html?item=Dwarf%20Hairgrass">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="equipment">
+          <div class="tile-media cr" style="position:relative;"><img src="shop/sketch-sponge-filter.jpg" alt="Sponge Filter" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:1;transition:opacity 0.3s;" data-index="0" /><img src="shop/sponge-filter.jpg" alt="Sponge Filter" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 0.3s;" data-index="1" /><button class="cb cb-p" onclick="cPrev(this)">&#8249;</button><button class="cb cb-n" onclick="cNext(this)">&#8250;</button><div class="cds"><span class="cd cd-a" data-index="0"></span><span class="cd" data-index="1"></span></div></div>
+          <div class="tile-body">
+            <span class="tag equipment">Equipment</span>
+            <h3>Sponge Filter</h3>
+            <p>Gentle filtration with tons of surface area for beneficial bacteria. Safe for shrimp and fry — no suction risk.</p>
+            <div class="tile-foot"><a class="btn btn-ghost btn-sm" href="contact.html?item=Sponge%20Filter">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="equipment">
+          <div class="tile-media cr" style="position:relative;"><img src="shop/sketch-aquarium-light.jpg" alt="Aquarium Light" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:1;transition:opacity 0.3s;" data-index="0" /><img src="shop/aquarium-light.jpg" alt="Aquarium Light" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 0.3s;" data-index="1" /><button class="cb cb-p" onclick="cPrev(this)">&#8249;</button><button class="cb cb-n" onclick="cNext(this)">&#8250;</button><div class="cds"><span class="cd cd-a" data-index="0"></span><span class="cd" data-index="1"></span></div></div>
+          <div class="tile-body">
+            <span class="tag equipment">Equipment</span>
+            <h3>Aquarium Light</h3>
+            <p>Compact LED light sized for nano tanks. Enough output for low to medium light plants without triggering algae blooms.</p>
+            <div class="tile-foot"><a class="btn btn-ghost btn-sm" href="contact.html?item=Aquarium%20Light">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="equipment">
+          <div class="tile-media cr" style="position:relative;"><img src="shop/sketch-driftwood.jpg" alt="Driftwood" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:1;transition:opacity 0.3s;" data-index="0" /><img src="shop/driftwood.jpg" alt="Driftwood" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 0.3s;" data-index="1" /><button class="cb cb-p" onclick="cPrev(this)">&#8249;</button><button class="cb cb-n" onclick="cNext(this)">&#8250;</button><div class="cds"><span class="cd cd-a" data-index="0"></span><span class="cd" data-index="1"></span></div></div>
+          <div class="tile-body">
+            <span class="tag equipment">Equipment</span>
+            <h3>Driftwood</h3>
+            <p>Natural driftwood pieces for hardscape. Releases tannins that lower pH slightly — beneficial for shrimp and most nano fish.</p>
+            <div class="tile-foot"><a class="btn btn-ghost btn-sm" href="contact.html?item=Driftwood">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="equipment">
+          <div class="tile-media" style="padding:0;overflow:hidden;"><img src="shop/aquarium-net.jpg" alt="Aquarium Net" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+          <div class="tile-body">
+            <span class="tag equipment">Equipment</span>
+            <h3>Aquarium Net</h3>
+            <p>Fine-mesh net sized for catching nano fish and shrimp without injuring them. Essential for any tank.</p>
+            <div class="tile-foot"><a class="btn btn-ghost btn-sm" href="contact.html?item=Aquarium%20Net">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="equipment">
+          <div class="tile-media" style="padding:0;overflow:hidden;"><img src="shop/nano-heater.jpg" alt="Nano Heater" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+          <div class="tile-body">
+            <span class="tag equipment">Equipment</span>
+            <h3>Nano Heater</h3>
+            <p>15–25W heater sized for tanks under 20L. Holds temperature precisely without the overshooting you get from full-size heaters.</p>
+            <div class="tile-foot"><a class="btn btn-ghost btn-sm" href="contact.html?item=Nano%20Heater">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="equipment">
+          <div class="tile-media cr" style="position:relative;"><img src="shop/sketch-thermometer.jpg" alt="Thermometer" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:1;transition:opacity 0.3s;" data-index="0" /><img src="shop/thermometer.jpg" alt="Thermometer" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 0.3s;" data-index="1" /><button class="cb cb-p" onclick="cPrev(this)">&#8249;</button><button class="cb cb-n" onclick="cNext(this)">&#8250;</button><div class="cds"><span class="cd cd-a" data-index="0"></span><span class="cd" data-index="1"></span></div></div>
+          <div class="tile-body">
+            <span class="tag equipment">Equipment</span>
+            <h3>Thermometer</h3>
+            <p>Accurate digital or glass thermometer for monitoring tank temperature. A must-have for shrimp keepers.</p>
+            <div class="tile-foot"><a class="btn btn-ghost btn-sm" href="contact.html?item=Thermometer">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="equipment">
+          <div class="tile-media cr" style="position:relative;"><img src="shop/sketch-airline-tubing.jpg" alt="Airline Tubing" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:1;transition:opacity 0.3s;" data-index="0" /><img src="shop/airline-tubing.jpg" alt="Airline Tubing" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 0.3s;" data-index="1" /><button class="cb cb-p" onclick="cPrev(this)">&#8249;</button><button class="cb cb-n" onclick="cNext(this)">&#8250;</button><div class="cds"><span class="cd cd-a" data-index="0"></span><span class="cd" data-index="1"></span></div></div>
+          <div class="tile-body">
+            <span class="tag equipment">Equipment</span>
+            <h3>Airline Tubing</h3>
+            <p>Flexible PVC tubing for connecting air pumps to sponge filters, stones, and other accessories.</p>
+            <div class="tile-foot"><a class="btn btn-ghost btn-sm" href="contact.html?item=Airline%20Tubing">Ask about this</a></div>
+          </div>
+        </div>
+
+        <div class="tile reveal" data-cat="equipment">
+          <div class="tile-media cr" style="position:relative;"><img src="shop/sketch-airline-accessories.jpg" alt="Airline Accessories" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:1;transition:opacity 0.3s;" data-index="0" /><img src="shop/airline-accessories.jpg" alt="Airline Accessories" class="ci" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 0.3s;" data-index="1" /><button class="cb cb-p" onclick="cPrev(this)">&#8249;</button><button class="cb cb-n" onclick="cNext(this)">&#8250;</button><div class="cds"><span class="cd cd-a" data-index="0"></span><span class="cd" data-index="1"></span></div></div>
           <div class="tile-body">
             <span class="tag equipment">Equipment</span>
             <h3>Airline Accessories</h3>
@@ -199,12 +441,7 @@
           </div>
         </div>
 
-      </div>
-            <p>Check valves, gang valves, airline connectors, and suction cups. Everything you need to set up and control airflow.</p>
-            <div class="tile-foot"><a class="btn btn-ghost btn-sm" href="contact.html?item=Airline%20Accessories">Ask about this</a></div>
-          </div>
-        </div>
-
+      
       </div>
     </div>
   </section>
@@ -287,27 +524,28 @@
     });
   </script>
   <script>
-    function carouselMove(btn, dir) {
-      const carousel = btn.closest('.carousel');
-      const imgs = carousel.querySelectorAll('.carousel-img');
-      const dots = carousel.querySelectorAll('.carousel-dot, .carousel-dotactive');
-      let current = Array.from(imgs).findIndex(img => img.style.opacity === '1');
-      imgs[current].style.opacity = '0';
-      dots[current].className = 'carousel-dot';
-      current = (current + dir + imgs.length) % imgs.length;
-      imgs[current].style.opacity = '1';
-      dots[current].className = 'carousel-dotactive';
+    function cMove(btn, dir) {
+      const cr = btn.closest('.cr');
+      const imgs = cr.querySelectorAll('.ci');
+      const dots = cr.querySelectorAll('.cd, .cd-a');
+      let cur = Array.from(imgs).findIndex(img => img.style.opacity === '1');
+      imgs[cur].style.opacity = '0';
+      dots[cur].className = 'cd';
+      cur = (cur + dir + imgs.length) % imgs.length;
+      imgs[cur].style.opacity = '1';
+      dots[cur].className = 'cd-a';
     }
-    function carouselPrev(btn) { carouselMove(btn, -1); }
-    function carouselNext(btn) { carouselMove(btn, 1); }
+    function cPrev(btn) { cMove(btn, -1); }
+    function cNext(btn) { cMove(btn, 1); }
     document.addEventListener('click', e => {
-      const dot = e.target.closest('.carousel-dot, .carousel-dotactive');
+      const dot = e.target.closest('.cd, .cd-a');
       if (!dot) return;
-      const carousel = dot.closest('.carousel');
-      const imgs = carousel.querySelectorAll('.carousel-img');
-      const dots = carousel.querySelectorAll('.carousel-dot, .carousel-dotactive');
+      const cr = dot.closest('.cr');
+      const imgs = cr.querySelectorAll('.ci');
+      const dots = cr.querySelectorAll('.cd, .cd-a');
       const idx = parseInt(dot.dataset.index);
-      imgs.forEach((img, i) => { img.style.opacity = i === idx ? '1' : '0'; dots[i].className = i === idx ? 'carousel-dotactive' : 'carousel-dot'; });
+      imgs.forEach((img, i) => { img.style.opacity = i === idx ? '1' : '0'; });
+      dots.forEach((d, i) => { d.className = i === idx ? 'cd-a' : 'cd'; });
     });
   </script>
 </body>
