@@ -16,20 +16,18 @@ const Auth = {
       .from('profiles')
       .select('*')
       .eq('id', userId)
-      .single();
+      .maybeSingle();
     if (error) { console.warn('getProfile:', error.message); return null; }
     return data;
   },
 
   async updateProfile(userId, fields) {
-    const { data, error } = await window.sb
+    const { error } = await window.sb
       .from('profiles')
       .update(fields)
-      .eq('id', userId)
-      .select()
-      .single();
+      .eq('id', userId);
     if (error) throw error;
-    return data;
+    return true;
   },
 
   async signUp(email, password, username) {

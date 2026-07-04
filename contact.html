@@ -98,7 +98,7 @@
             <div class="field"><label for="item">Item (if applicable)</label><input id="item" type="text" placeholder="e.g. Chili Rasbora" /></div>
             <div class="field"><label for="message">Message</label><textarea id="message" placeholder="Tell us what you need."></textarea></div>
             <button class="btn btn-primary" type="submit">Send message →</button>
-            <p class="form-note">Opens your email app with the message ready to send.</p>
+            <p class="form-note" id="formNote"></p>
           </form>
         </div>
 
@@ -181,18 +181,47 @@
       document.getElementById('reason').value = 'An item from the shop';
     }
 
-    const TO = "hello@buggsaquatics.co";
-    document.getElementById('contactForm').addEventListener('submit', (e) => {
+    const WEBHOOK = 'https://hook.us2.make.com/ng155t44jkd2t9jrk6vfyggx5cmd73y7';
+
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
       e.preventDefault();
-      const v = id => encodeURIComponent(document.getElementById(id).value || '');
-      const subject = encodeURIComponent('Inquiry from ' + (document.getElementById('name').value || 'website'));
-      const body =
-        'Name: ' + v('name') +
-        '%0D%0AEmail: ' + v('email') +
-        '%0D%0AReason: ' + v('reason') +
-        '%0D%0AItem: ' + v('item') +
-        '%0D%0A%0D%0AMessage:%0D%0A' + v('message');
-      window.location.href = 'mailto:' + TO + '?subject=' + subject + '&body=' + body;
+      const btn = e.target.querySelector('button[type="submit"]');
+      const note = document.getElementById('formNote');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      note.textContent = '';
+
+      const payload = {
+        name:    document.getElementById('name').value.trim(),
+        email:   document.getElementById('email').value.trim(),
+        reason:  document.getElementById('reason').value,
+        item:    document.getElementById('item').value.trim(),
+        message: document.getElementById('message').value.trim(),
+        source:  'BuggsAquatics Contact Form',
+        submitted_at: new Date().toISOString()
+      };
+
+      try {
+        const res = await fetch(WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (res.ok) {
+          btn.textContent = 'Message sent ✓';
+          btn.style.background = 'var(--water-deep)';
+          note.textContent = "Got it — I'll get back to you soon.";
+          e.target.reset();
+        } else {
+          throw new Error('Server error');
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = 'Send message →';
+        note.textContent = 'Something went wrong — try emailing hello@buggsaquatics.co directly.';
+        note.style.color = '#e85d3a';
+      }
     });
   </script>
 </body>
